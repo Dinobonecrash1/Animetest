@@ -1,0 +1,6 @@
+Component,Description,Technology
+Bot Framework,Telegram Bot API integration,python-telegram-bot
+Anime API,GoGoAnime data scraping,Custom API/Web scraping
+Database,User preferences and history,SQLite/PostgreSQL
+Hosting,24/7 bot availability,Heroku/Railway/VPS
+Authentication,Bot token security,Environment variables

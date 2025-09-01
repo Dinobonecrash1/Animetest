@@ -1,0 +1,43 @@
+[Unit]
+Description=Telegram Anime Bot
+After=network.target network-online.target
+Wants=network-online.target
+Requires=network.target
+
+[Service]
+Type=simple
+User=telegram-bot
+Group=telegram-bot
+WorkingDirectory=/home/telegram-bot/anime-bot
+ExecStart=/home/telegram-bot/anime-bot/venv/bin/python telegram_anime_bot.py
+Restart=always
+RestartSec=5
+StandardOutput=journal
+StandardError=journal
+SyslogIdentifier=telegram-anime-bot
+
+# Environment file
+EnvironmentFile=/home/telegram-bot/anime-bot/.env
+
+# Security settings
+NoNewPrivileges=yes
+PrivateTmp=yes
+ProtectKernelTunables=yes
+ProtectKernelModules=yes
+ProtectControlGroups=yes
+RestrictSUIDSGID=yes
+RestrictRealtime=yes
+RestrictNamespaces=yes
+LockPersonality=yes
+MemoryDenyWriteExecute=yes
+ProtectHostname=yes
+ProtectKernelLogs=yes
+ProtectProc=invisible
+ProcSubset=pid
+PrivateDevices=yes
+ProtectHome=yes
+ProtectSystem=strict
+ReadWritePaths=/home/telegram-bot/anime-bot
+
+[Install]
+WantedBy=multi-user.target
